@@ -1,0 +1,33 @@
+[config]
+schemaVersion = "0.1.0"
+
+[package]
+namespace = "Binbin"
+name = "Senenthia"
+versionNumber = "0.1.0"
+description = "Hero Mod for Senenthia, the Castle. the entire castle in Senenthia come to life to defeat your foes."
+websiteUrl = "https://github.com/binbinmods/Senenthia"
+containsNsfwContent = false
+
+[package.dependencies]
+meds-Obeliskial_Essentials = "1.5.1"
+meds-Obeliskial_Content = "1.7.22"
+
+
+[build]
+icon = "./icon.png"
+readme = "./README.md"
+outdir = "./build"
+
+[[build.copy]]
+source = "./Senenthia"
+target = ""
+
+
+[publish]
+repository = "https://thunderstore.io"
+communities = [ "across-the-obelisk", ]
+[publish.categories]
+across-the-obelisk = [ "mods", ]
+
+

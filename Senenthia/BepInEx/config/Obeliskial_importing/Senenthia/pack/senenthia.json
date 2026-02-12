@@ -1,0 +1,15 @@
+{
+    "Card0": "castlespike-a-polt",
+    "Card1": "guard",
+    "Card2": "coatofarms",
+    "Card3": "helpinghand",
+    "Card4": "entrench",
+    "Card5": "",
+    "CardSpecial0": "",
+    "CardSpecial1": "",
+    "PackClass": "warrior",
+    "PackID": "senenthia",
+    "PackName": "Senenthia",
+    "PerkList": [],
+    "RequiredClass": "castle"
+}

@@ -1,0 +1,15 @@
+{
+    "BaseSkin": true,
+    "PerkLevel": 0,
+    "SkinGO": "skinsenenthia",
+    "SkinID": "castlebase",
+    "SkinName": "Default",
+    "SkinOrder": 0,
+    "SkinSubclass": "castle",
+    "Sku": "",
+    "SpritePortrait": "senenthiaPortrait",
+    "SpritePortraitGrande": "senenthiaPortraitGrande",
+    "SpriteSilueta": "senenthiaSilueta",
+    "SpriteSiluetaGrande": "senenthiaSiluetaGrande",
+    "SteamStat": ""
+}

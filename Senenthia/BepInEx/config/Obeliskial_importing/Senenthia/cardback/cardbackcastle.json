@@ -1,0 +1,15 @@
+{
+    "AdventureLevel": 0,
+    "BaseCardback": true,
+    "CardbackID": "cardbackcastle",
+    "CardbackName": "Default",
+    "CardbackOrder": 1000,
+    "CardbackSprite": "cardbackcastle",
+    "CardbackSubclass": "castle",
+    "Locked": false,
+    "ObeliskLevel": 0,
+    "RankLevel": 0,
+    "ShowIfLocked": false,
+    "Sku": "",
+    "SteamStat": ""
+}

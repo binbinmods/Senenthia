@@ -1,0 +1,10 @@
+{
+  "name": "Senenthia_The_Castle",
+  "version_number": "0.1.0",
+  "website_url": "https://github.com/binbinmods/Senenthia",
+  "description": "New Hero Mod for Senenthia, the Castle. the entire castle in Senenthia come to life to defeat your foes.",
+  "dependencies": [
+    "meds-Obeliskial_Content-1.5.6",
+    "meds-Obeliskial_Essentials-1.5.0"
+  ]
+}
