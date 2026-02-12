@@ -73,44 +73,58 @@ namespace Senenthia
 
             if (_trait == trait0)
             {
-                // trait0:
+                // trait0: Block +2. Immune to Stealth and Evasion. Begin combat with 10 Disarm.
                 LogDebug($"Handling Trait {traitId}: {traitName}");
-                _character.SetAuraTrait(_character, "evade", 1);
+                if (!_character.HaveTrait(trait2b))
+                {
+                    _character.SetAuraTrait(_character, "disarm", 10);
+                }
             }
 
 
             else if (_trait == trait2a)
             {
-                // trait2a
-                if (CanIncrementTraitActivations(traitId) && _castedCard.HasCardType(Enums.CardType.Defense))// && MatchManager.Instance.energyJustWastedByHero > 0)
-                {
-                    LogDebug($"Handling Trait {traitId}: {traitName}");
-                    // _character?.ModifyEnergy(1);
-                    // DrawCards(1);
-                    IncrementTraitActivations(traitId);
-                }
+                // trait2a: At the start of each round, Apply 12 Block and 2 Fortify to all heroes.
+                LogDebug($"Handling Trait {traitId}: {traitName}");
+                ApplyAuraCurseToAll("block", 12, AppliesTo.Heroes, sourceCharacter: _character, useCharacterMods: true);
+                ApplyAuraCurseToAll("fortify", 2, AppliesTo.Heroes, sourceCharacter: _character, useCharacterMods: true);
+                // DrawCards(1);
             }
 
 
 
             else if (_trait == trait2b)
             {
-                // trait2b:
-                LogDebug($"Handling Trait {traitId}: {traitName}");
+                // trait2b: When you play an Attack that costs Energy, apply 1 energize to a random hero (4x/turn).
+
+                if (_castedCard != null && _castedCard.HasCardType(Enums.CardType.Attack) && (MatchManager.Instance.energyJustWastedByHero > 0 || _character.HaveTrait(trait4a)))
+                {
+                    LogDebug($"Handling Trait {traitId}: {traitName}");
+                    Character randomHero = GetRandomCharacter(teamHero);
+                    randomHero.SetAuraTrait(randomHero, "energize", 1);
+                }
 
             }
 
             else if (_trait == trait4a)
             {
-                // trait 4a;
+                // trait 4a; For every 5 Block you apply, apply 1 Thorns. Armory no longer has an energy requirement.
 
-                LogDebug($"Handling Trait {traitId}: {traitName}");
+                int nToApply = _auxInt / 5;
+                if (nToApply > 0 && IsLivingHero(_target))
+                {
+                    LogDebug($"Handling Trait {traitId}: {traitName}");
+                    _target.SetAuraTrait(_character, "thorns", nToApply);
+                }
             }
 
             else if (_trait == trait4b)
             {
                 // trait 4b:
                 LogDebug($"Handling Trait {traitId}: {traitName}");
+                int currentBlock = _character.EffectCharges("block");
+                int nToConsume = currentBlock / 4;
+                _character.ConsumeEffectCharges("block", nToConsume);
             }
 
         }
@@ -134,20 +148,16 @@ namespace Senenthia
 
                 // trait 4a;
 
-                // trait 4b:
+                // trait 4b: Block on you increases All Damage by 2% per charge. When you deal damage, reduce Block by 10%.
 
-                case "evasion":
-                    traitOfInterest = trait2a;
+                case "block":
+                    traitOfInterest = trait4b;
                     if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.ThisHero))
                     {
+                        __result = AtOManager.Instance.GlobalAuraCurseModifyDamage(__result, Enums.DamageType.All, 0, 0, 2);
                     }
                     break;
-                case "stealth":
-                    traitOfInterest = trait2b;
-                    if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Heroes))
-                    {
-                    }
-                    break;
+
             }
         }
 

@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "Castle no longer applies Disarm. When you play an Attack that costs Energy, apply 1 energize to a random hero (4x/turn).",
+    "Description": "Castle no longer applies Disarm. When you play an Attack that costs Energy, apply 1 Energize to a random hero.",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
@@ -36,7 +36,7 @@
     "ResistModifiedValue2": 0,
     "ResistModifiedValue3": 0,
     "TimesPerRound": 0,
-    "TimesPerTurn": 4,
+    "TimesPerTurn": 0,
     "TraitCard": "",
     "TraitCardForAllHeroes": "",
     "TraitName": "Armory"

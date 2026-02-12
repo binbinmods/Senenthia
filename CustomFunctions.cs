@@ -11,6 +11,7 @@ using static Senenthia.Plugin;
 using System.Collections.ObjectModel;
 using BepInEx;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Senenthia
 {
